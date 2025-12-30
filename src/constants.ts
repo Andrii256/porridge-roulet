@@ -1,4 +1,4 @@
-export const OPTIONS = [
+export const FOOD_OPTIONS_KEYS = [
   "semolina",
   "buckwheat",
   "barley grits",
