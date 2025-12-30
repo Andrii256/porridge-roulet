@@ -1,4 +1,4 @@
-import { useState } from "react";
+import useLocalStorageState from "use-local-storage-state";
 import "./app.css";
 import { OPTIONS as OPTIONS_KEYS } from "./constants";
 import { pickRandomItem } from "./utils/pick-random-item";
@@ -6,10 +6,12 @@ import { pickRandomItem } from "./utils/pick-random-item";
 type OptionKey = (typeof OPTIONS_KEYS)[number];
 
 function App() {
-  const [godsend, setGodSend] = useState<undefined | OptionKey>();
-  const [options, setOptionsToInclude] = useState(() =>
-    OPTIONS_KEYS.map((key) => ({ key, checked: true }))
+  const [godsend, setGodSend] = useLocalStorageState<undefined | OptionKey>(
+    "godsend"
   );
+  const [options, setOptionsToInclude] = useLocalStorageState("options", {
+    defaultValue: OPTIONS_KEYS.map((key) => ({ key, checked: true })),
+  });
 
   const updateOptionSelection = (key: OptionKey, enforcedValue?: boolean) => {
     setOptionsToInclude((prevValue) => {
