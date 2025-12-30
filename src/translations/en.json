@@ -1,0 +1,18 @@
+{
+  "spin": "Spin",
+  "spinAgain": "Spin Again",
+  "minOptionsAlert": "There must be at least 2 options in the list.",
+  "selectLanguage": "Language",
+
+  "foodOptions": {
+    "semolina": "Semolina",
+    "buckwheat": "Buckwheat",
+    "barley grits": "Barley Grits",
+    "bulgur": "Bulgur",
+    "couscous": "Couscous",
+    "cornmeal porridge": "Cornmeal Porridge",
+    "rice": "Rice",
+    "millet": "Millet",
+    "pasta": "Pasta"
+  }
+}

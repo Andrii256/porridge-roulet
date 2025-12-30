@@ -1,0 +1,17 @@
+{
+  "spin": "Крутити",
+  "spinAgain": "Крутити знову",
+  "minOptionsAlert": "У списку має залишитися принаймні 2 варіанти.",
+  "selectLanguage": "Мова",
+  "foodOptions": {
+    "semolina": "Манка",
+    "buckwheat": "Гречка",
+    "barley grits": "Ячка",
+    "bulgur": "Булгур",
+    "couscous": "Кускус",
+    "cornmeal porridge": "Мамалига",
+    "rice": "Рис",
+    "millet": "Пшоно",
+    "pasta": "Макарони"
+  }
+}
