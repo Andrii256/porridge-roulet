@@ -2,28 +2,29 @@ import { useTranslation } from "react-i18next";
 import useLocalStorageState from "use-local-storage-state";
 import "./app.css";
 
-import { LanguageSwitcher } from "./components/language-switcher";
+import { Header } from "./components/header";
 import { OptionsList } from "./components/options-list";
 import { SpinSection } from "./components/spin-section";
 import { FOOD_OPTIONS_KEYS, LS_KEYS } from "./constants";
 import type { FoodOptionKey } from "./types/food-options";
 import { pickRandomItem } from "./utils/pick-random-item";
+import { SelectDeselectAllButton } from "./components/select-all-button";
 
 function App() {
   const { t } = useTranslation();
   const [godsend, setGodSend] = useLocalStorageState<undefined | FoodOptionKey>(
-    LS_KEYS.RESULT_OF_PREV_SPIN
+    LS_KEYS.RESULT_OF_PREV_SPIN,
   );
-  const [options, setOptionsToInclude] = useLocalStorageState(
+  const [optionsToInclude, setOptionsToInclude] = useLocalStorageState(
     LS_KEYS.FOOD_OPTIONS,
     {
       defaultValue: FOOD_OPTIONS_KEYS.map((key) => ({ key, checked: true })),
-    }
+    },
   );
 
   const updateOptionSelection = (
     key: FoodOptionKey,
-    enforcedValue?: boolean
+    enforcedValue?: boolean,
   ) => {
     setOptionsToInclude((prevValue) => {
       const possibleNewValue = prevValue.map((option) =>
@@ -35,7 +36,7 @@ function App() {
                 typeof enforcedValue === "boolean"
                   ? enforcedValue
                   : !option.checked,
-            }
+            },
       );
 
       if (possibleNewValue.filter((option) => option.checked).length >= 2) {
@@ -50,7 +51,7 @@ function App() {
   };
 
   const handleSpin = () => {
-    const preparedOptions = options
+    const preparedOptions = optionsToInclude
       .filter((option) => option.checked)
       .map((option) => option.key);
 
@@ -62,10 +63,17 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-50 py-8 px-4 font-sans text-gray-900">
       <main className="max-w-md mx-auto bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
-        <LanguageSwitcher />
+        <Header
+          leftComponent={
+            <SelectDeselectAllButton
+              optionsToInclude={optionsToInclude}
+              setOptionsToInclude={setOptionsToInclude}
+            />
+          }
+        />
 
         <OptionsList
-          options={options}
+          options={optionsToInclude}
           updateOptionSelection={updateOptionSelection}
         />
 

@@ -3,7 +3,7 @@
   "spinAgain": "Spin Again",
   "minOptionsAlert": "There must be at least 2 options in the list.",
   "selectLanguage": "Language",
-
+  "selectAll": "Select All",
   "foodOptions": {
     "semolina": "Semolina",
     "buckwheat": "Buckwheat",

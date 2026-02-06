@@ -12,6 +12,7 @@ export const OptionsList: React.FC<OptionsListProps> = ({
   updateOptionSelection,
 }) => {
   const { t } = useTranslation();
+
   return (
     <ul className="space-y-2 mb-8">
       {options.map((option) => (
