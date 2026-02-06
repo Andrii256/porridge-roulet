@@ -1,5 +1,4 @@
 export const FOOD_OPTIONS_KEYS = [
-  "semolina",
   "buckwheat",
   "barley grits",
   "bulgur",
@@ -8,6 +7,10 @@ export const FOOD_OPTIONS_KEYS = [
   "rice",
   "millet",
   "pasta",
+  "peas",
+  "lentils",
+  "beans",
+  "chickpeas",
 ] as const;
 
 export const LS_KEYS = {
